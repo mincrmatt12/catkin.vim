@@ -35,6 +35,9 @@ endfunction
 
 function! catkinvim#CVConfig()
 	let l:rootdir = s:GetCatkinRootDir()
+	if l:rootdir == ""
+		return
+	endif
 	execute '!cd ' . l:rootdir . '; catkin config --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1; catkin build --force-cmake'
 
 	for pname in s:ListPackages(l:rootdir)
@@ -54,5 +57,8 @@ endfunction
 
 function! catkinvim#CVWstool()
 	let l:rootdir = s:GetCatkinRootDir() 
+	if l:rootdir == ""
+		return
+	endif
 	execute '!cd ' . l:rootdir . '/src; wstool update'
 endfunction
