@@ -1,0 +1,51 @@
+*catkinvim.txt* integration with catkin for vim
+
+                catkin.vim          
+     Adds support for catkin into vim
+
+=================================================
+CONTENTS 	     		 *CatkinContents*
+
+	1. Usage ........... |CatkinUsage|
+	2. Autocommands .... |CatkinAutocommands|
+	3. Commands ........ |CatkinCommands|
+
+=================================================
+Section 1: Usage		    *CatkinUsage*
+
+This plugin adds a small wrapper for the catkin
+build system into vim.
+
+In order to use the plugin to build catkin packages,
+simply run :make from any buffer which contains a file
+inside a catkin workspace.
+
+If you want to setup the workspace such that YouCompleteMe
+will work correctly, use the |:CaConfig| command.
+
+If you use wstool, you can use the |:CaWstool| command to update
+the wstool packages.
+
+=====================================================
+Section 2: Autocommands 	   *CatkinAutocommands*
+
+This plugin adds one autocommand on buffer read to
+set the makeprg to catkin inside a catkin buffer.
+
+======================================================
+Section 3: Commands                *CatkinCommands*
+
+
+:CaConfig 			   *:CaConfig*
+	
+	Uses catkin config to set up the workspace to 
+	generate compile_commands.json files, then builds
+	the workspace and links the generated files to
+	the packages' source directories.
+
+	Useful for users of the YouCompleteMe plugin
+
+:CaWstool  			   *:CaWstool*
+
+	Runs wstool update from the src folder of the
+	catkin workspace.
