@@ -50,9 +50,7 @@ endfunction
 
 function! catkinvim#CVMakePrg()
 	let l:rootdir = s:GetCatkinRootDir() 
-	if l:rootdir != ""
-		let &makeprg = 'cd ' . l:rootdir . '; catkin build --no-status -v'
-	endif
+	" commented
 endfunction
 
 function! catkinvim#CVBuild()
