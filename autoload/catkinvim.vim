@@ -9,7 +9,7 @@
 function! s:GetCatkinRootDir()
 	let l:curdir = expand('%:h')
 	let l:tries = 15
-	while l:curdir =~ "/" && l:tries > 1
+	while l:curdir != "/" && l:tries > 1
 		let l:tries -= 1
 		if filereadable(l:curdir . "/.catkin_tools/README")
 			return l:curdir
